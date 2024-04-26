@@ -9,15 +9,15 @@
     <link rel="stylesheet" href="{{asset('assets/vendors/font-awesome/css/all.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendors/aos/aos.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-    <script src="assets/vendors/jquery/jquery.min.js"></script>
-    <script src="assets/js/loader.js"></script>
+    <script src="{{'assets/vendors/jquery/jquery.min.js'}}"></script>
+    <script src="{{'assets/js/loader.js'}}"></script>
 </head>
 <body>
 <div class="edica-loader"></div>
 <header class="edica-header">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="index.html"><img src="assets/images/logo.svg" alt="Edica"></a>
+            <a class="navbar-brand" href="index.html"><img src="{{'assets/images/logo.svg'}}" alt="Edica"></a>
             <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#edicaMainNav"
                     aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -73,9 +73,9 @@
         <div class="footer-banner" data-aos="fade-up">
             <h1 class="banner-title">Download it now.</h1>
             <div class="banner-btns-wrapper">
-                <button class="btn btn-success"><img src="assets/images/apple@1x.svg" alt="ios" class="mr-2"> App Store
+                <button class="btn btn-success"><img src="{{'assets/images/apple@1x.svg'}}" alt="ios" class="mr-2"> App Store
                 </button>
-                <button class="btn btn-success"><img src="assets/images/android@1x.svg" alt="android" class="mr-2">
+                <button class="btn btn-success"><img src="{{'assets/images/android@1x.svg'}}" alt="android" class="mr-2">
                     Google Play
                 </button>
             </div>
@@ -89,7 +89,7 @@
         <div class="row footer-widget-area">
             <div class="col-md-3">
                 <a href="index.html" class="footer-brand-wrapper">
-                    <img src="assets/images/logo.svg" alt="edica logo">
+                        <img src="{{'assets/images/logo.svg'}}" alt="edica logo">
                 </a>
                 <p class="contact-details">hello@edica.com</p>
                 <p class="contact-details">+23 3000 000 00</p>
@@ -150,10 +150,10 @@
         </div>
     </div>
 </footer>
-<script src="assets/vendors/popper.js/popper.min.js"></script>
-<script src="assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="assets/vendors/aos/aos.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="{{'assets/vendors/popper.js/popper.min.js'}}"></script>
+<script src="{{'assets/vendors/bootstrap/dist/js/bootstrap.min.js'}}"></script>
+<script src="{{'assets/vendors/aos/aos.js'}}"></script>
+<script src="{{'assets/js/main.js'}}"></script>
 <script>
     AOS.init({
         duration: 1000
