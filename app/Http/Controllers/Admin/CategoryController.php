@@ -87,12 +87,16 @@ class CategoryController extends Controller
         return redirect()->route('categories.show', ['category' => $category]);
     }
 
-    public function destroy(Category $category)
+    /**
+     * @param  Category  $category
+     * @return RedirectResponse
+     */
+    public function destroy(Category $category): RedirectResponse
     {
 //        $this->authorize('delete', $category);
 
         $category->delete();
 
-        return response()->json();
+        return redirect()->route('categories.index');
     }
 }

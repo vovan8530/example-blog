@@ -18,7 +18,7 @@ class Category extends Model
     protected $guarded = [];
 
     /**
-     * Get the user's first name.
+     * @return Attribute
      */
     protected function createdAt(): Attribute
     {

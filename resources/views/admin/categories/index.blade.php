@@ -37,7 +37,7 @@
                             <th>ID</th>
                             <th>Title</th>
                             <th>Date</th>
-                            <th colspan="2">Action</th>
+                            <th colspan="3">Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -48,6 +48,13 @@
                                 <td>{{$category->created_at}}</td>
                                 <td><a href="{{route('categories.show', $category->id)}}" ><i class="fa-regular fa-eye"></i></a></td>
                                 <td><a href="{{route('categories.edit', $category->id)}}" ><i class="fa-solid fa-pen text-success"></i></a></td>
+                                <td>
+                                    <form action="{{route('categories.destroy', $category->id)}}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="border-0 bg-transparent"><i class="fa-solid fa-trash text-danger"></i></button>
+                                    </form>
+                                </td>
                         @endforeach
                         </tbody>
                     </table>
