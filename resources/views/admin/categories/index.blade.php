@@ -56,7 +56,7 @@
             </div>
             <!-- /.card -->
         </div>
-        <!-- /.content -->6578
+        <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
 @endsection
