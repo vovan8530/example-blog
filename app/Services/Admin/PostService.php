@@ -17,15 +17,20 @@ class PostService
         try {
             DB::beginTransaction();
 
-            $tags = $data['tags'];
-            unset($data['tags']);
+            if (isset($data['tags'])) {
+                $tags = $data['tags'];
+                unset($data['tags']);
+            }
 
             $data['main_image'] = Storage::disk('public')->put('posts/image', $data['main_image']);
             $data['preview_image'] = Storage::disk('public')->put('posts/image', $data['preview_image']);
 
             $post = Post::firstOrcreate($data);
 
-            $post->tags()->attach($tags);
+            if (isset($tags)) {
+                $post->tags()->attach($tags);
+            }
+
             DB::commit();
 
         } catch (\Exception $exception) {
@@ -44,8 +49,11 @@ class PostService
         try {
             DB::beginTransaction();
 
-            $tags = $data['tags'];
-            unset($data['tags']);
+            if (isset($data['tags'])) {
+                $tags = $data['tags'];
+                unset($data['tags']);
+            }
+
 
             if(isset($data['main_image'])) {
                 $data['main_image'] = Storage::disk('public')->put('posts/image', $data['main_image']);
@@ -56,7 +64,9 @@ class PostService
             }
 
             $post->update($data);
-            $post->tags()->sync($tags);
+            if (isset($tags)) {
+                $post->tags()->attach($tags);
+            }
 
             DB::commit();
 
