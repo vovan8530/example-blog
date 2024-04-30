@@ -26,9 +26,6 @@
         </div>
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Fixed Header Table</h3>
-                </div>
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0" style="height: 300px;">
                     <table class="table table-head-fixed text-nowrap">

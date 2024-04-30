@@ -18,6 +18,7 @@ class PostResource extends JsonResource
             'description' => $this->description,
             'is_published' => $this->is_published,
             'likes' => $this->likes,
+            'categories_id' => $this->categories_id,
         ];
     }
 }

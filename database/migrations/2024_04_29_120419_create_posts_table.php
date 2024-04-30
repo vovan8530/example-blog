@@ -14,8 +14,8 @@ return new class extends Migration {
             $table->boolean('is_published')->default(false);
             $table->integer('likes')->default(0);
 
-            $table->unsignedBigInteger('categories_id');
-            $table->foreign('categories_id')->references('id')
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')
                 ->on('categories')
                 ->onDelete('cascade');
 

@@ -5,48 +5,109 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PostRequest;
 use App\Http\Resources\PostResource;
+use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
+use App\Services\Admin\PostService;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\View\View;
 
 class PostController extends Controller
 {
+
+    /**
+     * @param  PostService  $service
+     */
+    public function __construct(protected PostService $service)
+    {
+    }
+
     public function index()
     {
 //        $this->authorize('viewAny', Post::class);
 
         return view('admin.posts.index',
-//            ['post' => PostResource::collection(Post::all())]
+            ['posts' => PostResource::collection(Post::all())]
         );
     }
 
-    public function store(PostRequest $request)
+    /**
+     * @return View
+     */
+    public function create(): View
     {
-        $this->authorize('create', Post::class);
-
-        return new PostResource(Post::create($request->validated()));
+        return view('admin.posts.create', [
+            'categories' => Category::all(),
+            'tags' => Tag::all()
+        ]);
     }
 
-    public function show(Post $post)
+    /**
+     * @param  PostRequest  $request
+     * @return RedirectResponse
+     */
+    public function store(PostRequest $request): RedirectResponse
     {
-        $this->authorize('view', $post);
+//        $this->authorize('create', Post::class);
+        $data = $request->validated();
+        $this->service->store($data);
 
-        return new PostResource($post);
+        return redirect()->route('posts.index');
     }
 
-    public function update(PostRequest $request, Post $post)
+    /**
+     * @param  Post  $post
+     * @return View
+     */
+    public function show(Post $post): View
     {
-        $this->authorize('update', $post);
-
-        $post->update($request->validated());
-
-        return new PostResource($post);
+//        $this->authorize('view', $post);
+        return view('admin.posts.show', ['post' => new PostResource($post)]);
     }
 
-    public function destroy(Post $post)
+    /**
+     * @param  Post  $post
+     * @return View
+     */
+    public function edit(Post $post): View
     {
-        $this->authorize('delete', $post);
+        //        $this->authorize('view', $post);
+        return view('admin.posts.edit', [
+                'post' => new PostResource($post),
+                'categories' => Category::all(),
+                'tags' => Tag::all(),
+            ]
+        );
+    }
+
+    /**
+     * @param  PostRequest  $request
+     * @param  Post  $post
+     * @return RedirectResponse
+     */
+    public function update(PostRequest $request, Post $post): RedirectResponse
+    {
+//        $this->authorize('update', $post);
+
+        $data = $request->validated();
+
+        $this->service->update($data, $post);
+
+        return redirect()->route('posts.index');
+    }
+
+    /**
+     * @param  Post  $post
+     * @return RedirectResponse
+     */
+    public function destroy(Post $post): RedirectResponse
+    {
+//        $this->authorize('delete', $post);
 
         $post->delete();
 
-        return response()->json();
+        return redirect()->route('posts.index');
     }
 }

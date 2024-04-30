@@ -15,6 +15,22 @@
                     </p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{route('tags.index')}}" class="nav-link">
+                    <i class="fa-solid fa-tag"></i>
+                    <p>
+                        Tags
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('posts.index')}}" class="nav-link">
+                    <i class="fa-solid fa-clipboard"></i>
+                    <p>
+                        Posts
+                    </p>
+                </a>
+            </li>
         </ul>
 
     </div>
