@@ -22,7 +22,7 @@
                 @csrf
                 <div class="w-25 form-group">
                     <label>Title</label>
-                    <input type="text" name="title" class="form-control" placeholder="Title category" required>
+                    <input type="text" name="title" value="{{old('title')}}" class="form-control" placeholder="Title category" required>
                     @error('title')
                     <div class="text-danger">
                         {{$message}}

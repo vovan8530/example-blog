@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Create category</h1>
+                        <h1 class="m-0">Create tag</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -18,11 +18,11 @@
         <!-- Main content -->
 
         <div class="col-12">
-            <form action="{{route('categories.store')}}" method="POST">
+            <form action="{{route('tags.store')}}" method="POST">
                 @csrf
                 <div class="w-25 form-group">
                     <label>Title</label>
-                    <input type="text" name="title" class="form-control" placeholder="Title category" required>
+                    <input type="text" name="title" value="{{old('title')}}" class="form-control" placeholder="Title tag" required>
                     @error('title')
                     <div class="text-danger">
                         {{$message}}
