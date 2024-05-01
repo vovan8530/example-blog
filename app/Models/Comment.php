@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -35,5 +36,14 @@ class Comment extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * @param $value
+     * @return Carbon
+     */
+    public function getCreatedAtAttribute($value): Carbon
+    {
+        return Carbon::parse($value);
     }
 }

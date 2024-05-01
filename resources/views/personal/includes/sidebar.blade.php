@@ -32,6 +32,14 @@
                     </p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{route('main.index')}}" class="nav-link">
+                    <i class="fa-solid fa-globe"></i>
+                    <p>
+                        Edica web
+                    </p>
+                </a>
+            </li>
         </ul>
 
     </div>

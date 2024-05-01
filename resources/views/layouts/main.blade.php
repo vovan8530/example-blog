@@ -25,26 +25,21 @@
             <div class="collapse navbar-collapse" id="edicaMainNav">
                 <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{route('main.index')}}">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{route('main.index')}}">Home <span
+                                class="sr-only">(current)</span></a>
                     </li>
-{{--                    <li class="nav-item dropdown">--}}
-{{--                        <a class="nav-link dropdown-toggle" href="#" id="blogDropdown" data-toggle="dropdown"--}}
-{{--                           aria-haspopup="true" aria-expanded="false">Blog</a>--}}
-{{--                        <div class="dropdown-menu" aria-labelledby="blogDropdown">--}}
-{{--                            <a class="dropdown-item" href="blog.html">Blog Archive</a>--}}
-{{--                            <a class="dropdown-item" href="blog-single.html">Blog Post</a>--}}
-{{--                        </div>--}}
-{{--                    </li>--}}
+                    @guest()
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{route('personal.main.index')}}">Login <span class="sr-only">(current)</span></a>
+                        </li>
+                    @endguest
+                    @auth()
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{route('personal.main.index')}}">Personal panel <span
+                                    class="sr-only">(current)</span></a>
+                        </li>
+                    @endauth
                 </ul>
-{{--                <ul class="navbar-nav mt-2 mt-lg-0">--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link" href="#"><span--}}
-{{--                                class="flag-icon flag-icon-squared rounded-circle flag-icon-gb"></span> Eng</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link" href="#">Download</a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
             </div>
         </nav>
     </div>
@@ -54,7 +49,7 @@
 @yield('content')
 
 
-<section class="edica-footer-banner-section">
+<section class="edica-footer-banner-section pt-5">
     <div class="container">
         <div class="footer-banner" data-aos="fade-up">
             <h1 class="banner-title">Download it now.</h1>

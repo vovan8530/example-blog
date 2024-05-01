@@ -43,41 +43,6 @@
                     </section>
                 </div>
                 <div class="col-md-4 sidebar" data-aos="fade-left">
-                    {{--                <div class="widget widget-post-carousel">--}}
-                    {{--                    <h5 class="widget-title">Post Lists</h5>--}}
-                    {{--                    <div class="post-carousel">--}}
-                    {{--                        <div id="carouselId" class="carousel slide" data-ride="carousel">--}}
-                    {{--                            <ol class="carousel-indicators">--}}
-                    {{--                                <li data-target="#carouselId" data-slide-to="0" class="active"></li>--}}
-                    {{--                                <li data-target="#carouselId" data-slide-to="1"></li>--}}
-                    {{--                                <li data-target="#carouselId" data-slide-to="2"></li>--}}
-                    {{--                            </ol>--}}
-                    {{--                            <div class="carousel-inner" role="listbox">--}}
-                    {{--                        --}}
-                    {{--                                    <figure class="carousel-item active">--}}
-                    {{--                                        <img src="{{$post->preview_image}}" alt="First slide">--}}
-                    {{--                                        <figcaption class="post-title">--}}
-                    {{--                                            <a href="#!">Front becomes an official Instagram Marketing Partner</a>--}}
-                    {{--                                        </figcaption>--}}
-                    {{--                                    </figure>--}}
-                    {{--                     --}}
-
-                    {{--                                <figure class="carousel-item">--}}
-                    {{--                                    <img src="{{'assets/images/blog_7.jpg'}}" alt="First slide">--}}
-                    {{--                                    <figcaption class="post-title">--}}
-                    {{--                                        <a href="#!">Front becomes an official Instagram Marketing Partner</a>--}}
-                    {{--                                    </figcaption>--}}
-                    {{--                                </figure>--}}
-                    {{--                                <div class="carousel-item">--}}
-                    {{--                                    <img src="{{'assets/images/blog_5.jpg'}}" alt="First slide">--}}
-                    {{--                                    <figcaption class="post-title">--}}
-                    {{--                                        <a href="#!">Front becomes an official Instagram Marketing Partner</a>--}}
-                    {{--                                    </figcaption>--}}
-                    {{--                                </div>--}}
-                    {{--                            </div>--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
-                    {{--                </div>--}}
                     <div class="widget widget-post-list">
                         <h5 class="widget-title">Post List</h5>
                         <ul class="post-list">
@@ -93,13 +58,8 @@
                             @endforeach
                         </ul>
                     </div>
-                    {{--                    <div class="widget">--}}
-                    {{--                        <h5 class="widget-title">Categories</h5>--}}
-                    {{--                        <img src="{{'assets/images/blog_widget_categories.jpg'}}" alt="categories" class="w-100">--}}
-                    {{--                    </div>--}}
                 </div>
             </div>
         </div>
-
     </main>
 @endsection

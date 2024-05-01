@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
@@ -53,5 +55,13 @@ class Post extends Model
     public function userLikes(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'post_user_likes', 'post_id', 'user_id');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function comments(): HasMany
+    {
+       return $this->hasMany(Comment::class, 'post_id','id');
     }
 }
