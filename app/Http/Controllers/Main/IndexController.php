@@ -11,8 +11,8 @@ class IndexController extends Controller
     public function __invoke()
     {
         $posts = Post::latest()->paginate(6);
-        $myPosts = Auth::user()->posts;
-        $popularPosts = Post::withCount('userLikes')->orderBy('likes','desc')->limit(3)->get();
+        $myPosts = Auth::user()->posts ?? null;
+        $popularPosts = Post::withCount('userLikes')->orderBy('likes', 'desc')->limit(3)->get();
         return view('main.index', [
             'posts' => $posts,
             'myPosts' => $myPosts,

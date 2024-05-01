@@ -24,19 +24,21 @@
                 <div class="col-md-8">
                     <section>
                         <div class="row blog-post-row">
-                            @foreach($myPosts as $post)
+                            @isset($myPosts)
+                                @foreach($myPosts as $post)
 
-                                <div class="col-md-6 blog-post" data-aos="fade-up">
-                                    <div class="blog-post-thumbnail-wrapper">
-                                        <img src="{{$post->preview_image}}" alt="blog post">
+                                    <div class="col-md-6 blog-post" data-aos="fade-up">
+                                        <div class="blog-post-thumbnail-wrapper">
+                                            <img src="{{$post->preview_image}}" alt="blog post">
+                                        </div>
+                                        <p class="blog-post-category">Blog post</p>
+                                        <a href="#!" class="blog-post-permalink">
+                                            <h6 class="blog-post-title">Front becomes an official Instagram Marketing
+                                                Partner</h6>
+                                        </a>
                                     </div>
-                                    <p class="blog-post-category">Blog post</p>
-                                    <a href="#!" class="blog-post-permalink">
-                                        <h6 class="blog-post-title">Front becomes an official Instagram Marketing
-                                            Partner</h6>
-                                    </a>
-                                </div>
-                            @endforeach
+                                @endforeach
+                            @endisset
                         </div>
                     </section>
                 </div>
