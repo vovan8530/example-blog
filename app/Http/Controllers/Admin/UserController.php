@@ -6,14 +6,10 @@ use App\Enums\RoleTypes;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Http\Resources\UserResource;
-use App\Mail\User\PasswordMail;
+use App\Jobs\StoreUserJob;
 use App\Models\User;
 use App\Services\Admin\UserService;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class UserController extends Controller
@@ -55,14 +51,7 @@ class UserController extends Controller
 
         $data = $request->validated();
 
-        $password = Str::random(8);
-        $email =$data['email'];
-
-        $data['password'] = Hash::make($password);
-        $user = User::firstOrcreate(['email' => $email], $data);
-        Mail::to($email)->send(new PasswordMail($password));
-
-        event(new Registered($user));
+        StoreUserJob::dispatch($data);
 
         return redirect()->route('users.index');
     }
