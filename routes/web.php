@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminIndexController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\TagController;
@@ -17,6 +18,7 @@ Route::get('/', IndexController::class)->name('index');
 
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth:web', 'admin', 'verified']], function () {
+    Route::get('/', AdminIndexController::class)->name('admin.main.index');
     Route::resource('users', UserController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('tags', TagController::class);
