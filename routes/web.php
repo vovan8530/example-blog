@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', IndexController::class)->name('main.index');
-Route::get('/{post}', ShowController::class)->name('main.show');
+Route::get('/{post}', ShowController::class)->name('main.show')->where('post', '[0-9]+');
 
 
 Route::group(['middleware' => ['auth:web', 'verified']], function () {
