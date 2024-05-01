@@ -16,6 +16,7 @@ class TagFactory extends Factory
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             'title' => $this->faker->word(),
+
         ];
     }
 }

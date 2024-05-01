@@ -19,6 +19,9 @@ class PostFactory extends Factory
             'description' => $this->faker->text(),
             'is_published' => $this->faker->boolean(),
             'likes' => $this->faker->randomNumber(),
+            'main_image' => $this->faker->imageUrl(360, 360, 'animals',),
+            'preview_image' => $this->faker->imageUrl(360, 360, 'animals', true, 'cats'),
+            'category_id' => 1
         ];
     }
 }

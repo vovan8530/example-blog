@@ -13,7 +13,7 @@ class AdminMiddleware
     {
 
         if (Auth::user()->role !== RoleTypes::ADMIN->value) {
-            return redirect()->route('index');
+            return redirect()->route('main.index');
         }
         return $next($request);
     }
