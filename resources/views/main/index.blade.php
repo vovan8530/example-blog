@@ -9,7 +9,7 @@
                     @foreach($posts as $post)
                         <div class="col-md-4 fetured-post blog-post" data-aos="fade-right">
                             <div class="blog-post-thumbnail-wrapper">
-                                <img src="{{$post->preview_image}}" alt="blog post">
+                                <img src="{{asset($post->preview_image)}}" alt="blog post">
                             </div>
                             <div class="d-flex justify-content-between ">
                                 <a href="{{route('main.show', $post->id)}}"
@@ -22,8 +22,7 @@
                                             @if($post->user_likes_count != 0)
                                                 <span>{{$post->user_likes_count}}</span>
                                             @endif
-                                            <button type="submit" class="border-0 bg-transparent"
-                                                    style="#openPopup:focus {outline: none;}">
+                                            <button type="submit" class="border-0 bg-transparent">
                                                 @if(auth()->user()->postLikes->contains($post->id))
                                                     <i class="fa-solid fa-heart"></i>
                                                 @else
@@ -54,7 +53,7 @@
 
                                     <div class="col-md-6 blog-post" data-aos="fade-up">
                                         <div class="blog-post-thumbnail-wrapper">
-                                            <img src="{{$post->preview_image}}" alt="blog post">
+                                            <img src="{{asset($post->preview_image)}}" alt="blog post">
                                         </div>
                                         <p class="blog-post-category">Blog post</p>
                                         <a href="#!" class="blog-post-permalink">
@@ -74,7 +73,7 @@
                             @foreach($popularPosts as $post)
                                 <li class="post">
                                     <a href="#!" class="post-permalink media">
-                                        <img src="{{$post->preview_image}}" alt="blog post">
+                                        <img src="{{asset($post->preview_image)}}" alt="blog post">
                                         <div class="media-body">
                                             <h6 class="post-title">{{$post->title}}</h6>
                                         </div>

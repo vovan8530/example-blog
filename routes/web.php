@@ -5,7 +5,8 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Comment\StoreController;
+use App\Http\Controllers\Category\CategoryIndexController;
+use App\Http\Controllers\Category\CategoryPostsIndexController;
 use App\Http\Controllers\Like\StoreLikeController;
 use App\Http\Controllers\Main\IndexController;
 use App\Http\Controllers\Main\ShowController;
@@ -18,6 +19,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', IndexController::class)->name('main.index');
 Route::get('/{post}', ShowController::class)->name('main.show')->where('post', '[0-9]+');
+
+
+Route::group(['prefix' => 'categories'], function (){
+    Route::get('/', CategoryIndexController::class)->name('main.category.index');
+    Route::get('/{category}/posts', CategoryPostsIndexController::class)->name('main.category.posts.index');
+});
 
 
 Route::group(['middleware' => ['auth:web', 'verified']], function () {
@@ -36,7 +43,7 @@ Route::group(['middleware' => ['auth:web', 'verified']], function () {
 
     });
 
-    Route::post('{post}/comment', StoreController::class)->name('comment.store');
+    Route::post('{post}/comment', CategoryIndexController::class)->name('comment.store');
     Route::post('{post}/like', StoreLikeController::class)->name('like.store');
 
 });
