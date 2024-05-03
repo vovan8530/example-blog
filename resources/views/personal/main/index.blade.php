@@ -28,7 +28,7 @@
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>10</h3>
+                            <h3>{{$data['countLikePost']}}</h3>
 
                             <p>Like posts</p>
                         </div>
@@ -43,7 +43,7 @@
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>10</h3>
+                            <h3>{{$data['countComments']}}</h3>
 
                             <p>Comments</p>
                         </div>
