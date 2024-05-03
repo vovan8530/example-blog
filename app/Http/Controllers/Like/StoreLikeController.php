@@ -12,6 +12,6 @@ class StoreLikeController extends Controller
     public function __invoke(Post $post)
     {
         Auth::user()->postLikes()->toggle($post);
-        return redirect()->route('main.index');
+        return redirect()->back();
     }
 }

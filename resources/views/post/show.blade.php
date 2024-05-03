@@ -18,6 +18,34 @@
                 </div>
             </div>
         </section>
+        <section>
+
+            <div class="d-flex">
+                @auth()
+                    <form action="{{route('like.store', $post->id)}}" method="post">
+                        @csrf
+                        @if($post->user_likes_count != 0)
+                            <span>{{$post->user_likes_count}}</span>
+                        @endif
+                        <button type="submit" class="border-0 bg-transparent"
+                                style="#openPopup:focus {outline: none;}">
+                            @if(auth()->user()->postLikes->contains($post->id))
+                                <i class="fa-solid fa-heart"></i>
+                            @else
+                                <i class="fa-regular fa-heart"></i>
+                            @endif
+                        </button>
+                    </form>
+                @endauth
+                @guest()
+                    <div>
+                        <span>{{$post->user_likes_count}}</span>
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+                @endguest
+            </div>
+
+        </section>
         <div class="row">
             <div class="col-lg-9 mx-auto">
                 <section class="related-posts">

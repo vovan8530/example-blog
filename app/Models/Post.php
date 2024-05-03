@@ -31,7 +31,15 @@ class Post extends Model
 {
     use SoftDeletes, HasFactory;
 
+    /**
+     * @var array
+     */
     protected $guarded = [];
+
+    /**
+     * @var string[]
+     */
+    protected $withCount = ['userLikes'];
 
     /**
      * @return BelongsToMany

@@ -14,21 +14,31 @@
                             <div class="d-flex justify-content-between ">
                                 <a href="{{route('main.show', $post->id)}}"
                                    class="blog-post-permalink">{{$post->title}}</a>
-                                @auth()
-                                    <div class="d-flex">
+
+                                <div class="d-flex">
+                                    @auth()
                                         <form action="{{route('like.store', $post->id)}}" method="post">
-                                        @csrf
-                                        <button type="submit" class="border-0 bg-transparent" style="#openPopup:focus {outline: none;}">
-                                            @if(auth()->user()->postLikes->contains($post->id))
-                                                <i class="fa-solid fa-heart"></i>
-                                            @else
-                                                <i class="fa-regular fa-heart"></i>
+                                            @csrf
+                                            @if($post->user_likes_count != 0)
+                                                <span>{{$post->user_likes_count}}</span>
                                             @endif
-                                        </button>
+                                            <button type="submit" class="border-0 bg-transparent"
+                                                    style="#openPopup:focus {outline: none;}">
+                                                @if(auth()->user()->postLikes->contains($post->id))
+                                                    <i class="fa-solid fa-heart"></i>
+                                                @else
+                                                    <i class="fa-regular fa-heart"></i>
+                                                @endif
+                                            </button>
                                         </form>
-                                        <div>{{$post->userLikes->count()}}</div>
-                                    </div>
-                                @endauth
+                                    @endauth
+                                    @guest()
+                                        <div>
+                                            <span>{{$post->user_likes_count}}</span>
+                                            <i class="fa-regular fa-heart"></i>
+                                        </div>
+                                    @endguest
+                                </div>
                             </div>
                         </div>
                     @endforeach
