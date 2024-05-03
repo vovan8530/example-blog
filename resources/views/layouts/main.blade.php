@@ -6,7 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Edica :: Home</title>
     <link rel="stylesheet" href="{{asset('assets/vendors/flag-icon-css/css/flag-icon.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/vendors/font-awesome/css/all.min.css')}}">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <link rel="stylesheet" href="{{asset('assets/vendors/aos/aos.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <script src="{{'assets/vendors/jquery/jquery.min.js'}}"></script>

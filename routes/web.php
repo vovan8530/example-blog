@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Comment\StoreController;
+use App\Http\Controllers\Like\StoreLikeController;
 use App\Http\Controllers\Main\IndexController;
 use App\Http\Controllers\Main\ShowController;
 use App\Http\Controllers\Personal\CommentController;
@@ -36,6 +37,7 @@ Route::group(['middleware' => ['auth:web', 'verified']], function () {
     });
 
     Route::post('{post}/comment', StoreController::class)->name('comment.store');
+    Route::post('{post}/like', StoreLikeController::class)->name('like.store');
 
 });
 

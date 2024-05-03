@@ -11,10 +11,25 @@
                             <div class="blog-post-thumbnail-wrapper">
                                 <img src="{{$post->preview_image}}" alt="blog post">
                             </div>
-                            <p class="blog-post-category">{{$post->title}}</p>
-                            <a href="{{route('main.show', $post->id)}}" class="blog-post-permalink">
-                                <h6 class="blog-post-title">Front becomes an official Instagram Marketing Partner</h6>
-                            </a>
+                            <div class="d-flex justify-content-between ">
+                                <a href="{{route('main.show', $post->id)}}"
+                                   class="blog-post-permalink">{{$post->title}}</a>
+                                @auth()
+                                    <div class="d-flex">
+                                        <form action="{{route('like.store', $post->id)}}" method="post">
+                                        @csrf
+                                        <button type="submit" class="border-0 bg-transparent" style="#openPopup:focus {outline: none;}">
+                                            @if(auth()->user()->postLikes->contains($post->id))
+                                                <i class="fa-solid fa-heart"></i>
+                                            @else
+                                                <i class="fa-regular fa-heart"></i>
+                                            @endif
+                                        </button>
+                                        </form>
+                                        <div>{{$post->userLikes->count()}}</div>
+                                    </div>
+                                @endauth
+                            </div>
                         </div>
                     @endforeach
                 </div>

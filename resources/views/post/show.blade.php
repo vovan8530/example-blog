@@ -5,7 +5,7 @@
     <div class="container">
         <h1 class="edica-page-title aos-init aos-animate" data-aos="fade-up">Blog single page</h1>
         <p class="edica-blog-post-meta aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">Written by Richard
-            Searls• {{$date->format('F')}}, {{$date->year}}• {{$date->format('H:i')}}• Featured
+            Searls•{{$date->format('d')}} {{$date->format('F')}}, {{$date->year}}• {{$date->format('H:i')}}• Featured
             • {{$post->comments()->count()}} Comments</p>
         <section class="blog-post-featured-img aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
             <img src="{{$post->preview_image}}" alt="featured image" class="w-100">

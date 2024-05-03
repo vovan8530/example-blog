@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Enums\RoleTypes;
 use App\Notifications\SendVerifyWithQueueNotification;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -55,7 +57,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function postLikes(): BelongsToMany
     {
-        return $this->belongsToMany(Post::class,'post_user_likes','user_id','post_id');
+        return $this->belongsToMany(Post::class, 'post_user_likes', 'user_id', 'post_id');
     }
 
     /**
@@ -79,6 +81,15 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function posts(): BelongsToMany
     {
-        return $this->belongsToMany(Post::class, 'post_user_likes','user_id','post_id');
+        return $this->belongsToMany(Post::class, 'post_user_likes', 'user_id', 'post_id');
+    }
+
+    /**
+     * @param $value
+     * @return string
+     */
+    public function getRole($value): string
+    {
+        return RoleTypes::getLabel(RoleTypes::from($value));
     }
 }

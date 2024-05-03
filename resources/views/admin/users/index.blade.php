@@ -1,4 +1,5 @@
 <?php
+
 /**@var App\Http\Resources\UserResource[] $users */
 
 ?>
@@ -40,6 +41,7 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Role</th>
                             <th colspan="3">Action</th>
                         </tr>
                         </thead>
@@ -49,13 +51,17 @@
                                 <td>{{$user->id}}</td>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
-                                <td><a href="{{route('users.show', $user->id)}}" ><i class="fa-regular fa-eye"></i></a></td>
-                                <td><a href="{{route('users.edit', $user->id)}}" ><i class="fa-solid fa-pen text-success"></i></a></td>
+                                <td>{{$user->getRole($user->role)}}</td>
+                                <td><a href="{{route('users.show', $user->id)}}"><i class="fa-regular fa-eye"></i></a>
+                                </td>
+                                <td><a href="{{route('users.edit', $user->id)}}"><i
+                                            class="fa-solid fa-pen text-success"></i></a></td>
                                 <td>
                                     <form action="{{route('users.destroy', $user->id)}}" method="POST">
                                         @method('DELETE')
                                         @csrf
-                                        <button type="submit" class="border-0 bg-transparent"><i class="fa-solid fa-trash text-danger"></i></button>
+                                        <button type="submit" class="border-0 bg-transparent"><i
+                                                class="fa-solid fa-trash text-danger"></i></button>
                                     </form>
                                 </td>
                         @endforeach
